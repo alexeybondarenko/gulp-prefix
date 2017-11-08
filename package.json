@@ -6,8 +6,8 @@
   "homepage": "https://github.com/007design/gulp-prefix",
   "license": "MIT",
   "publishConfig": {
-    "registry":"https://registry.npmjs.org/"
-    },
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node spec"
   },

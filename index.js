@@ -11,11 +11,10 @@ _prefixer = function(prefix, attr, invalid) {
     node.getAttribute(attr, function(uri) {
 
       uri = url.parse(uri, false, true);
-
       if(uri.host || !uri.path)
         return;
-      
-      if (!/^[!#$&-;=?-\[\]_a-z~\.\/\{\}]+$/.test(uri.path)) {
+
+      if (!/^[!#$&-;=?-%\[\]_a-z~\.\/\{\}]+$/.test(uri.path)) {
         return;
       }
 
@@ -43,13 +42,13 @@ module.exports = function(prefix, selectors, ignore) {
       { match: "img[data-ng-src]", attr: "data-ng-src"}
       ];
     }
-    
+
     if(!prefix)
       cb(null, file);
 
     else {
       var tr = trumpet();
-      
+
       for (var a in selectors)
         tr.selectAll(selectors[a].match, _prefixer(prefix, selectors[a].attr, ignore))
 
@@ -60,6 +59,6 @@ module.exports = function(prefix, selectors, ignore) {
       }));
 
       file.pipe(tr);
-    } 
+    }
   });
 };
