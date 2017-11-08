@@ -14,11 +14,6 @@ _prefixer = function(prefix, attr, invalid) {
       if(uri.host || !uri.path)
         return;
 
-      if (!/^([!#$&-;=?-\[\]_a-z~\.\/\{\}\s]|(%20))+$/.test(uri.path)) {
-        console.log(uri.path)
-        return;
-      }
-
       if (invalid && new RegExp(invalid).test(uri.path)){
         return;
       }
